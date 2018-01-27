@@ -15,10 +15,20 @@ local filename = os.date("os%Y%m%d", os.time())
 local filepath = prefix .. "logs/space/"
 local mylog = string.format(filepath .. "%s.log", filename)
 local log = require("social.common.log4j"):new(mylog)
+--local function get
 
 local function demo1()
-    log:debug(1212121)
+    local redballs ={}
+    local redball
+    for k=1,6 do
+        redball = request:getNumParam(string.format("redball%s",k),true,true)
+        redballs[k]=redball
+    end
+    log:debug(redballs)
+    log:debug(123123)
     ngx.say(121212121)
+    return;
+
 end
 
 local urls = {

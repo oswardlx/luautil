@@ -1,8 +1,8 @@
 --local util = require("social.common.util")
 local cjson = require "cjson"
---local ssdbutil = require("social.common.ssdbutil")
---local redisutil = require("social.common.redisutil")
---local mysqlutil = require("social.common.mysqlutil");
+local ssdbutil = require("social.common.ssdbutil")
+local redisutil = require("social.common.redisutil")
+local mysqlutil = require("social.common.mysqlutil");
 
 local log = require("social.common.log")
 local _M = { debug = nil }
@@ -16,15 +16,15 @@ function Application:new(obj)
     return obj
 end
 
---local function clean()
---    --此处用于关闭所有的连接信息。
---    --
---    mysqlutil:clean();
---    ssdbutil:keepalive()
---    redisutil:keepalive()
---
---   -- log.debug("回收数据库连接 。")
---end
+local function clean()
+    --此处用于关闭所有的连接信息。
+    --
+    mysqlutil:clean();
+    ssdbutil:keepalive()
+    redisutil:keepalive()
+
+   -- log.debug("回收数据库连接 。")
+end
 
 function Application:run()
     local matched = nil
